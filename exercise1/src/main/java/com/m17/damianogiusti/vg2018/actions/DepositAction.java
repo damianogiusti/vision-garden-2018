@@ -31,19 +31,21 @@ class DepositAction implements UserAction {
       throw new IllegalArgumentException("Il valore inserito (" + amountString + ") non è un numero!", e);
     }
     final Money money = new Money(amount, BankAccount.CURRENCY);
-    deposit(money);
-    writer.println(String.format("Depositati %s!", money));
+    if (deposit(money)) {
+      writer.println(String.format("Depositati %s!", money));
+    } else {
+      writer.println(String.format("Impossibile depositare %s!", money));
+    }
     return true;
   }
 
-  private void deposit(Money money) {
+  private boolean deposit(Money money) {
     if (money == null) {
       throw new IllegalArgumentException("Cannot deposit " + money);
     }
 
     if (money.getAmount().signum() <= 0) {
-      writer.println(String.format("Impossibile depositare %s!", money));
-      return;
+      return false;
     }
 
     final Money total = bankAccount.getTotal();
@@ -51,5 +53,7 @@ class DepositAction implements UserAction {
       .setScale(2, RoundingMode.HALF_EVEN);
     final BigDecimal newTotal = amount.add(total.getAmount());
     bankAccount.setTotal(new Money(newTotal, total.getCurrency()));
+
+    return true;
   }
 }

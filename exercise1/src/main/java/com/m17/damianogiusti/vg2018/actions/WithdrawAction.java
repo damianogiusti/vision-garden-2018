@@ -31,29 +31,31 @@ class WithdrawAction implements UserAction {
       throw new IllegalArgumentException("Il valore inserito (" + amountString + ") non è un numero!", e);
     }
     final Money money = new Money(amount, BankAccount.CURRENCY);
-    withdraw(money);
-    writer.println(String.format("Prelevati %s!", money));
+    if (withdraw(money)) {
+      writer.println(String.format("Prelevati %s!", money));
+    } else {
+      writer.println("L'importo da prelevare è invalido!");
+    }
     return true;
   }
 
-  private void withdraw(Money money) {
+  private boolean withdraw(Money money) {
     if (money == null) {
       throw new IllegalArgumentException("Impossibile prelevare! :(");
     }
     if (money.getAmount().signum() < 0) {
-      writer.println("Impossibile prelevare un importo negativo!");
-      return;
+      return false;
     }
 
     final Money total = bankAccount.getTotal();
     if (money.getAmount().compareTo(total.getAmount()) > 0) {
-      writer.println("L'importo da prelevare è maggiore del totale!");
-      return;
+      return false;
     }
 
     final BigDecimal amount = money.getAmount()
       .setScale(2, RoundingMode.HALF_EVEN);
     final BigDecimal newTotal = total.getAmount().subtract(amount);
     bankAccount.setTotal(new Money(newTotal, total.getCurrency()));
+    return true;
   }
 }
