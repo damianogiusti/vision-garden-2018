@@ -14,8 +14,8 @@ Le feature verranno implementate in modo incrementale.
 3. Visualizzazione menu
 4. Lettura scelta utente con opportuna validazione
 5. Funzionalità di deposito  
-  a. Lettura e validazione importo da depositare  
-  b. Feedback sull'operazione
+    a. Lettura e validazione importo da depositare  
+    b. Feedback sull'operazione
 6. Funzionalità di prelievo  
-  a. Lettura e validazione importo da prelevare  
-  b. Feedback sull'operazione
+    a. Lettura e validazione importo da prelevare  
+    b. Feedback sull'operazione
