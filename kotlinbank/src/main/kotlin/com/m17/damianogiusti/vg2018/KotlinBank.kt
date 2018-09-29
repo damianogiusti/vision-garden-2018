@@ -13,7 +13,7 @@ class KotlinBank(private val actionFactory: ActionFactory) {
         val account = bankAccount
 
         if (account == null) {
-            println("Benvenuto in JavaBank!")
+            println("Benvenuto in KotlinBank!")
             println("Stiamo aprendo il tuo conto, ci servirebbero delle info...")
             println("Come ti chiami?")
             val name = readLine()?.trim() ?: ""
@@ -24,7 +24,7 @@ class KotlinBank(private val actionFactory: ActionFactory) {
                 .let { BankAccount(name, Money(it, BankAccount.CURRENCY)) }
             println("Yeah, ora sei un nuovo cliente!")
         } else {
-            println("Bentornato in JavaBank, ${account.owner}!")
+            println("Bentornato in KotlinBank, ${account.owner}!")
             println("Il tuo conto ammonta a ${account.total}")
             println("Che cosa vuoi fare?")
             println("${ActionFactory.DEPOSIT}) Deposita")
