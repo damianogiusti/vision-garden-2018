@@ -16,7 +16,7 @@ class KotlinBank(private val actionFactory: ActionFactory) {
             println("Benvenuto in KotlinBank!")
             println("Stiamo aprendo il tuo conto, ci servirebbero delle info...")
             println("Come ti chiami?")
-            val name = readLine()?.trim() ?: ""
+            val name = readLine()?.takeIf { it.isNotBlank() } ?: error("Il nome inserito non è valido!")
             println("Piacere $name. Quanti soldi vuoi depositare in conto? (${BankAccount.CURRENCY.symbol})")
             val initialAmountString = readLine()?.trim() ?: ""
             bankAccount = initialAmountString.toBigDecimal()
