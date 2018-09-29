@@ -28,6 +28,9 @@ public class KotlinBank {
       writer.println("Stiamo aprendo il tuo conto, ci servirebbero delle info...");
       writer.println("Come ti chiami?");
       final String name = scanner.nextLine().trim();
+      if ("".equals(name)) {
+        throw new IllegalArgumentException("Hai inserito un nome utente vuoto!");
+      }
       writer.println(String.format("Piacere %s. Quanti soldi vuoi depositare in conto? (%s)", name, BankAccount.CURRENCY.getSymbol()));
       final String initialAmountString = scanner.nextLine().trim();
       final BigDecimal initialAmount = new BigDecimal(initialAmountString).setScale(2, RoundingMode.HALF_EVEN);
