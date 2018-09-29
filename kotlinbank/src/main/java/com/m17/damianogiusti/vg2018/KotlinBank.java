@@ -8,14 +8,14 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Scanner;
 
-public class Exercise1 {
+public class KotlinBank {
 
   private final ActionFactory actionFactory;
 
   private boolean shouldTerminate = false;
   private BankAccount bankAccount;
 
-  public Exercise1(ActionFactory actionFactory) {
+  public KotlinBank(ActionFactory actionFactory) {
     this.actionFactory = actionFactory;
   }
 
@@ -24,7 +24,7 @@ public class Exercise1 {
     final Scanner scanner = new Scanner(System.in);
 
     if (bankAccount == null) {
-      writer.println("Benvenuto in JavaBank!");
+      writer.println("Benvenuto in KotlinBank!");
       writer.println("Stiamo aprendo il tuo conto, ci servirebbero delle info...");
       writer.println("Come ti chiami?");
       final String name = scanner.nextLine().trim();
@@ -78,7 +78,7 @@ public class Exercise1 {
   ///////////////////////////////////////////////////////////////////////////
 
   public static void main(String[] args) {
-    final Exercise1 program = new Exercise1(new ActionFactory());
+    final KotlinBank program = new KotlinBank(new ActionFactory());
 
     do {
       program.newRun();
