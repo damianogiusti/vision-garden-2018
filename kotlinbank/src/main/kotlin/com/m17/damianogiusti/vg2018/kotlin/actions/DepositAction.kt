@@ -1,7 +1,7 @@
-package com.m17.damianogiusti.vg2018.actions
+package com.m17.damianogiusti.vg2018.kotlin.actions
 
-import com.m17.damianogiusti.vg2018.BankAccount
-import com.m17.damianogiusti.vg2018.Money
+import com.m17.damianogiusti.vg2018.kotlin.BankAccount
+import com.m17.damianogiusti.vg2018.kotlin.Money
 import java.math.RoundingMode
 
 class DepositAction(private val bankAccount: BankAccount) : UserAction {

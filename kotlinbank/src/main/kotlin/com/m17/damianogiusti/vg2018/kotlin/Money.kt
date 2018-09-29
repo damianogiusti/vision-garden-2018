@@ -1,4 +1,4 @@
-package com.m17.damianogiusti.vg2018
+package com.m17.damianogiusti.vg2018.kotlin
 
 import java.math.BigDecimal
 

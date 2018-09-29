@@ -1,12 +1,12 @@
-package com.m17.damianogiusti.vg2018.actions
+package com.m17.damianogiusti.vg2018.kotlin.actions
 
-import com.m17.damianogiusti.vg2018.BankAccount
+import com.m17.damianogiusti.vg2018.kotlin.BankAccount
 
 class ActionFactory {
 
     operator fun invoke(command: String?, bankAccount: BankAccount): UserAction? {
         return when (command?.toLowerCase()) {
-            ActionFactory.DEPOSIT -> DepositAction(bankAccount)
+            DEPOSIT -> DepositAction(bankAccount)
             WITHDRAW -> WithdrawAction(bankAccount)
             QUIT -> QuitAction()
             else -> null

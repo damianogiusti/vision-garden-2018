@@ -1,6 +1,6 @@
-package com.m17.damianogiusti.vg2018
+package com.m17.damianogiusti.vg2018.kotlin
 
-import com.m17.damianogiusti.vg2018.actions.ActionFactory
+import com.m17.damianogiusti.vg2018.kotlin.actions.ActionFactory
 import java.math.BigDecimal
 import java.math.RoundingMode
 

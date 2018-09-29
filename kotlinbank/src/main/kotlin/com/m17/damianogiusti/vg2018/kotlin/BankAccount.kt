@@ -1,4 +1,4 @@
-package com.m17.damianogiusti.vg2018
+package com.m17.damianogiusti.vg2018.kotlin
 
 data class BankAccount(val owner: String, var total: Money) {
 
