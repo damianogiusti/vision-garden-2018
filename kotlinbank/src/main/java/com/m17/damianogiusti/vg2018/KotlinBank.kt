@@ -4,7 +4,7 @@ import com.m17.damianogiusti.vg2018.actions.ActionFactory
 import java.math.BigDecimal
 import java.math.RoundingMode
 
-class Exercise1(private val actionFactory: ActionFactory) {
+class KotlinBank(private val actionFactory: ActionFactory) {
 
     private var shouldTerminate = false
     private var bankAccount: BankAccount? = null
@@ -13,7 +13,7 @@ class Exercise1(private val actionFactory: ActionFactory) {
         val account = bankAccount
 
         if (account == null) {
-            println("Benvenuto in JavaBank!")
+            println("Benvenuto in KotlinBank!")
             println("Stiamo aprendo il tuo conto, ci servirebbero delle info...")
             println("Come ti chiami?")
             val name = readLine()?.trim() ?: ""
@@ -63,7 +63,7 @@ class Exercise1(private val actionFactory: ActionFactory) {
 }
 
 fun main(args: Array<String>) {
-    with(Exercise1(ActionFactory())) {
+    with(KotlinBank(ActionFactory())) {
         do newRun() while (!shouldTerminate())
     }
 }
